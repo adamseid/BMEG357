@@ -44,9 +44,7 @@
 					<th onclick="sortTable(2)" style="cursor: pointer; font-size: xx-large !important;">Location</th>
 				</tr>
 				</thead>
-				<tbody>
-				<tr>
-				</tr></tbody>
+				<tbody></tbody>
 			</table></div>
 		<div class="filters">
 			<input type="search" value="Search" onfocus="if(this.value === 'Search') {this.value=''}" onblur="if(this.value === ''){this.value ='Search'}">
@@ -66,55 +64,8 @@
 			<script src="assets/js/main.js"></script>
 
 
-		<script async>
-				$(document).ready(function() {
-
-					promise = $.ajax({
-						type:"GET",
-						dataType:"text",
-						url:"data.csv",
-						cache:false
-					});
-
-					promise.done(function(data){
-
-						//Parse CSV File
-						//split on new line
-						var dataArr = data.split("\n");
-
-						//for each line in array
-						$.each(dataArr,function(){
-							if (this != "") {
-
-								//split files and create row
-								var row = new String("");
-								valArr = this.split(",");
-								row += "<tr>"
-
-								$.each(valArr, function(){
-									row += "<td>" + this +"</td>"
-								});
-
-								row += "</tr>"
-
-								//Add row to table
-								$('tbody').append(row);
-
-							}
-
-						});
-
-					});
-
-					// Run script if request fails
-					promise.fail(function() {
-						console.log('A failure ocurred');
-					});
-
-				});
-			</script>
-		<script async>
-			window.onload = (function sortTable(n) {
+		<script>
+			function sortTable(n) {
 				var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
 				table = document.getElementById("myTable");
 				switching = true;
@@ -125,8 +76,8 @@
 
 					for (i = 1; i < (rows.length - 1); i++) {
 						shouldSwitch = false;
-
 						x = rows[i].getElementsByTagName("td")[n];
+						console.log(rows[i])
 						y = rows[i + 1].getElementsByTagName("td")[n];
 
 						if (dir == "asc") {
@@ -155,7 +106,54 @@
 						}
 					}
 				}
-			})
+			}
+		</script>
+		<script>
+			$(document).ready(function() {
+
+				promise = $.ajax({
+					type:"GET",
+					dataType:"text",
+					url:"data.csv",
+					cache:false
+				});
+
+				promise.done(function(data){
+
+					//Parse CSV File
+					//split on new line
+					var dataArr = data.split("\n");
+
+					//for each line in array
+					$.each(dataArr,function(){
+						if (this != "") {
+
+							//split files and create row
+							var row = new String("");
+							valArr = this.split(",");
+							row += "<tr>"
+
+							$.each(valArr, function(){
+								row += "<td>" + this +"</td>"
+							});
+
+							row += "</tr>"
+
+							//Add row to table
+							$('tbody').append(row);
+
+						}
+
+					});
+
+				});
+
+				// Run script if request fails
+				promise.fail(function() {
+					console.log('A failure ocurred');
+				});
+
+			});
 		</script>
 
 	</body>
