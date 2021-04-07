@@ -33,6 +33,8 @@
 <div id="heading" >
 	<h1>View Trends</h1>
 </div>
+<canvas id="myChart" style="max-height: 60vh;"></canvas>
+
 
 
 
@@ -42,6 +44,48 @@
 <script src="assets/js/breakpoints.min.js"></script>
 <script src="assets/js/util.js"></script>
 <script src="assets/js/main.js"></script>
+<script src="node_modules/chart.js/dist/chart.js"></script>
+<script>
+	var ctx = document.getElementById('myChart').getContext('2d');
+	Chart.defaults.font.size = 16;
+	var myChart = new Chart(ctx, {
+		type: 'line',
+		data: {
+			labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'],
+			datasets: [{
+				label: 'Average Ventilator use Per day',
+				data: [32, 19, 25, 26, 30, 45],
+				backgroundColor: [
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 159, 64, 0.2)'
+				],
+				borderColor: [
+					'rgba(255, 99, 132, 1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)'
+				],
+				borderWidth: 1
+			}]
+		},
+		options: {
+			scales: {
+				y: {
+					beginAtZero: true
+				}
+			},
+			pointHoverRadius: true,
+			pointHoverRadius: 16,
+			pointBorderWidth: 8
+		}
+	});
+</script>
 
 </body>
 </html>

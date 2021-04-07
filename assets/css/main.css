@@ -2832,7 +2832,7 @@ body.is-menu-visible #menu {
 }
 .container {
   position: relative;
-  width: 30%;
+  width: 100%;
 }
 .overlay {
   position: absolute;
@@ -2855,10 +2855,30 @@ body.is-menu-visible #menu {
 
 .text {
   color: white;
-  font-size: 20px;
+  font-size: 80px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
+}
+.holder {
+  width:48%;
+  margin:4px;
+  float: left;
+}
+#parent {
+  zoom: 0.5;
+  -moz-transform: scale(0.5);
+  transform: scale(0.7);
+}
+.filters {
+  float: left;
+  padding: 20px 20px 20px 20px;
+}
+.table-responsive {
+  float: left;
+  padding: 20px 20px 20px 20px;
+  min-height: 160vh;
+  min-width: 160vh;
 }
