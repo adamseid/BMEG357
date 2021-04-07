@@ -7,6 +7,7 @@
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
 	<link rel="stylesheet" href="assets/css/main.css" />
+	<script type="text/javascript" src="assets/js/trends.js"></script>
 </head>
 <body class="is-preload">
 
@@ -34,7 +35,21 @@
 	<h1>View Trends</h1>
 </div>
 
+<!-- Load Image -->
+<div id="grid-container">
+	<div class = "trends-image">
+		<img id = "graphingImage-1" src="images/Ventilator Use Graph-1.png"/>
+		<img id = "graphingImage-2" src="images/Ventilator Use Graph-2.png"/>
+		<img id = "graphingImage-3" src="images/Ventilator Use Graph-3.png"/> 
+		<img id = "graphingImage-4" src="images/Ventilator Use Graph-4.png"/>
+	</div> 
+</div> 
 
+<!-- Previous and Next Button -->
+<div align = "center">
+	<button id="button previous-button" onClick= "changePic('-')">Previous</button>
+	<button id="button next-button" onClick= "changePic('+')">Next</button>
+</div>
 
 <!-- Scripts -->
 <script src="assets/js/jquery.min.js"></script>
@@ -42,6 +57,5 @@
 <script src="assets/js/breakpoints.min.js"></script>
 <script src="assets/js/util.js"></script>
 <script src="assets/js/main.js"></script>
-
 </body>
 </html>
