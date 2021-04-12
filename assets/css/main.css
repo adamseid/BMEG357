@@ -2875,7 +2875,7 @@ body.is-menu-visible #menu {
   transform: scale(0.7);
 }
 .filters {
-  float: left;
+  float: right;
   padding: 20px 20px 20px 20px;
 }
 .table-responsive {
